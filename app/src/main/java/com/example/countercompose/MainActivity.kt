@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CounterComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    CounterScreen(
+                    CounterApp(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
