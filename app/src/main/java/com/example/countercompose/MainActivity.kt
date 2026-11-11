@@ -20,8 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CounterComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    CounterScreen(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
