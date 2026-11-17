@@ -145,7 +145,7 @@ fun CounterButtons(
             onClick = onNext,
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF673AB7) // Warna ungu (Deep Purple)
+                containerColor = Color(0xFF673AB7)
             )
         ) {
             Text("NEXT")

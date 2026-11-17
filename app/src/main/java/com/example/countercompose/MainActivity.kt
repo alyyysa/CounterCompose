@@ -7,6 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,9 +24,21 @@ class MainActivity : ComponentActivity() {
         setContent {
             CounterComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    CounterApp(
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    var currentScreen by rememberSaveable { mutableStateOf("counter") }
+                    when (currentScreen) {
+                        "counter" -> {
+                            CounterApp(
+                                modifier = Modifier.padding(innerPadding),
+                                onNavigateToDataDiri = { currentScreen = "data_diri" }
+                            )
+                        }
+                        "data_diri" -> {
+                            DataDiriScreen(
+                                modifier = Modifier.padding(innerPadding),
+                                onBack = { currentScreen = "counter" }
+                            )
+                        }
+                    }
                 }
             }
         }
